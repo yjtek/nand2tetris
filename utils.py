@@ -310,6 +310,6 @@ def cmos_XOR(input1: TRANSISTOR_OUTPUT, input2: TRANSISTOR_OUTPUT, ground: bool 
     ## - If (1, 1) --> 0
     ##    - CMOS OR returns 1, CMOS NAND returns 0
     ##    - CMOS AND returns 0
-    or_out = cmos_OR(input1, input2, ground=ground)
-    nand_out = cmos_NAND(input1, input2, ground=ground)
-    return cmos_AND(or_out, nand_out, ground=ground)
+    or_out = cmos_OR(input1, input2, power=ground)
+    nand_out = cmos_NAND(input1, input2, power=ground)
+    return cmos_AND(or_out, nand_out, power=ground)
