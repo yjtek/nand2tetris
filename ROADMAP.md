@@ -1,6 +1,6 @@
 Roadmap: From Stateless Logic to Software Execution
 
-4_state_and_memory.ipynb (Sequential Logic)
+4_stateless_to_stateful_ops.ipynb (Sequential Logic)
 
 - SR Latch & D Latch: Build basic 1-bit memory cells using cross-coupled NOR/NAND gates to hold state.
 - Flip-Flops: Combine latches to form edge-triggered D Flip-Flops that update only on clock transitions.
@@ -11,7 +11,7 @@ Roadmap: From Stateless Logic to Software Execution
 - Read-during-write: Decide whether a read in the same tick as a write sees the old or new value. `register_file_4xN` currently returns the new one.
 - Data RAM: A register file of 4 words is not enough to hold program variables. Build a larger RAM (e.g. 16 words, 4-bit address) the same way.
 - ROM: Instruction memory that the program is loaded into. Read-only, so no flip-flops needed per bit. Decide how it is wired.
-- Shared library: Move the Notebook 3 blocks (`mux_2to1`, `mux_4to1`, `decoder_2to4`, `n_bit_mux_2to1`, adders, `alu_4bit`) into `utils.py` or a module so Notebook 5 can import them. Notebook 4 calls `cmos_MUX`, `cmos_DECODER_2to4`, `cmos_MUX_4to1`, `nor_gate`, none of which exist.
+- Shared library: `utils.py` has `mux_2to1`, `mux_4to1`, `decoder_2to4` copied from Notebook 3. Notebook 5 also needs `n_bit_mux_2to1`, the adders, and `alu_4bit`. Copies drift from the notebook; consider making `utils.py` the only definition.
 - Tests: Truth-table checks for every gate and block. Bugs compound upward, and a CPU bug is very hard to trace back to a gate.
 
 5_instruction_set_architecture.ipynb (The CPU & ISA)
